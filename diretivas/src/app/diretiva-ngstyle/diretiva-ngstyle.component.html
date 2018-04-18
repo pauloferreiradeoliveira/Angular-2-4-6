@@ -1,0 +1,16 @@
+<button
+[ngStyle]="{
+	'backgroundColor': (ativo ? 'blue' : 'gray'),
+	'color': (ativo ? 'white' : 'black'),
+	'fontSize': (tamnhoFonte + 'px')
+}"
+
+(click)="mudarAtivo()"
+>
+	Mudar Atributo Ativo
+</button>
+
+{{ tamnhoFonte }}
+
+<input type="text" [(ngModel)] = "tamnhoFonte" >
+

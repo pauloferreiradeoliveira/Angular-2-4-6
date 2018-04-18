@@ -1,0 +1,97 @@
+<main class="container"> 
+
+  <!-->
+  <article>
+    <h3>Intepolação</h3>
+    <p>String com Iterpolação {{ url }}</p>
+    <p>Resultado de 1+ 1 e:{{ 1 + 1 }}</p>
+    <p>Resultado de 1 + 1 não e: {{ 1 + 1 + getValor()}}</p>
+    <p>Curso angular e gosto {{ getCurtirCurso() }}</p>
+  </article>
+  <article>
+    <img src="{{urlImagem}}">
+    <img [src]="urlImagem">
+  </article>
+-->
+<!--
+  <article>
+    <div>
+      Selecione uma classe:
+    </div>
+    <select class="form-control" #classe (change)="0">
+      <option value="alert-success">Sucesso</option>
+      <option value="alert-info">Info</option>
+      <option value="alert-warning">Alert</option>
+      <option value="alert-danger">Erro</option>
+    </select>
+    <br>
+    <div class="alert {{classe.value}}" role="alert">
+        This is a primary alert—check it out!
+    </div>
+     Dispay - CSS 
+    <div class="alert alert-danger" role="alert"
+  
+    [style.display]="classe.value == 'alert-danger' ? 'block' : 'none'"
+    ></div>
+  </article>
+-->
+
+<!--
+<article class="col-12">
+  <h3>Event Binding</h3>
+  <div>
+    <button (click)="botaoClicado()" 
+    class="btn btn-primary">Me Click</button>
+  </div>
+
+  <input type="text" class="form-control"
+    (keyup)="onKeyUp($event)"
+    (keyup.enter)="salvarValor(campoInpur.value)" 
+    (blur)="salvarValor($event.target.value)"
+    #campoInpur
+    />
+  <p>Valor Atual {{ valorAtual }} </p>
+  <p>Valor Salvo {{ valorSalvo }}</p>
+
+  <span
+    (mouseover)="onMouseOverOut()"
+    (mouseout)="onMouseOverOut()"
+    [class.highligth] = "isMouseOver"
+  >Passe o Mouse Sobre MIM</span>
+</article>
+-->
+
+<!--Aula 13-->
+<!--
+<section class="two-way-binding">
+  <article>
+    <h3>Two-Way data Binding</h3>
+    <div>
+      <input type="text" 
+        [value]="nome"
+        (input)= "nome = $event.target.value"
+      />
+
+      <input type="text" [(ngModel)]="nome" />
+
+      <input type="text" [(ngModel)]="pessoa.nome">
+      <input type="number" [(ngModel)]="pessoa.idade">
+
+      <p>Meu nome e: {{ pessoa.nome }} e eu tenho {{ pessoa.idade }} </p>
+
+      <p>Voce Digitou {{nome}}</p>
+    </div>
+  </article>
+</section>
+-->
+
+<section class="input-output-properteis">
+  <article>
+    <h3>Input/Output Properties</h3>
+    <app-curso [nome]="nomeCurso"></app-curso>
+    <app-contador [valor]="valorInicial" 
+    (mudorValor)="onMudouValor($event)"
+    ></app-contador>
+  </article>
+</section>
+</main>

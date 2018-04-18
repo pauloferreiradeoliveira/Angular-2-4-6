@@ -1,0 +1,18 @@
+<p fundoAmarelo>
+ Texto com fundo Amarelo
+</p>
+
+<p appHighlightMouse>
+	Texto com hightling quando passo o mouse
+</p>
+
+<p [appHighlight]="'red'" [defaultColor]="'grey'" >
+	Texto com HightLing quando passo o mouse
+</p>
+
+<button (click)="onMostraCurso()" class="btn btn-primary">Mostra ou Esconter</button>
+
+<h5 *ngIf="mostrarCursos"> Mostrar</h5>
+<!--Aqui passa o Templete + Condição para a diretiva-->
+<h5 *ngElse="mostrarCursos"> Mostrar2</h5>
+

@@ -1,0 +1,21 @@
+<nav>
+    <div class="nav-wrapper">
+      <a routerLink=""  class="brand-logo right">Rotas NG2</a>
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <li routerLinkActive="active"><a routerLink="/login" >Login</a></li>
+				<li routerLinkActive="active"><a routerLink="/cursos" [queryParams]="{pagina:1}">Cursos</a></li>
+				<!-- li routerLinkActive="active"><a [routerLink]="['curso', idCurso.value]" >Cursos com ID</a></li-->
+				<li routerLinkActive="active"><a routerLink="/alunos" >Alunos</a></li>
+			</ul>
+   </div>
+</nav>
+<div class="container">
+	<!--
+	<div class="input-field col s6">
+		<input placeholder="ID" #idCurso  type="text" class="validate">
+		<label for="first_name">Entre com ID do Curso</label>
+	</div>
+	-->
+	<!-- Para Fazer o Rotiamento-->
+	<router-outlet></router-outlet>
+</div>
