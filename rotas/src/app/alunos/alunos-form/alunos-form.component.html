@@ -6,7 +6,7 @@
 		<label for="first_name">ID</label>
 	</div>
 	<div class="input-field">
-		<input placeholder="Nome" id="first_name" [(ngModel)]="aluno.nome" type="text">
+		<input placeholder="Nome" id="first_name" [(ngModel)]="aluno.nome" (click)="onIpuntNome()" type="text">
 		<label for="first_name">Nome:</label>
 	</div>
 	<div class="input-field">
