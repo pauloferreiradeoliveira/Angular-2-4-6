@@ -1,0 +1,77 @@
+<h3>Form Template</h3>
+
+<div class="col-12">
+  <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+    <!-- NOME -->
+    <div class="form-group">
+      <label for="nome">Nome</label>
+      <!-- So pega o dados -->
+      <input type="text" [ngClass]="aplicarCssErro('nome')" class="form-control" id="nome" placeholder="Escreva seu nome" formControlName="nome">
+      <app-campo-control-erro [motrarErro]="verificaValidToucched('nome')" msgErro="O Nome e obrigatório"></app-campo-control-erro>
+    </div>
+    <!-- Email -->
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="text" class="form-control" [ngClass]="aplicarCssErro('email')" id="email" formControlName="email" placeholder="Escreva seu Email">
+      <app-campo-control-erro [motrarErro]="verificaValidToucched('email')" msgErro="O Email e obrigatório"></app-campo-control-erro>
+      <app-campo-control-erro [motrarErro]="verificarEmail()" msgErro="O Email e inválido"></app-campo-control-erro>
+    </div>
+    <!-- Entereço -->
+    <div formGroupName="endereco" >
+      <div class="form-row">
+<!-- CEP -->
+        <div class="custom-control col-12 col-md-3">
+          <label for="cep">CEP</label>
+          <input type="text" class="form-control" (blur)="consultaCEP()" [ngClass]="aplicarCssErro('endereco.cep')"  placeholder="CEP" formControlName="cep" id="cep">
+          <app-campo-control-erro [motrarErro]="verificaValidToucched('endereco.cep')" msgErro="O Cep e obrigatório"></app-campo-control-erro>
+        </div>
+<!-- Numero -->
+        <div class="custom-control col-12 col-md-3">
+          <label for="numero">Numero</label>
+          <input type="text" class="form-control" placeholder="Numero" formControlName="numero" id="numero" [ngClass]="aplicarCssErro('endereco.numero')">
+          <app-campo-control-erro [motrarErro]="verificaValidToucched('endereco.numero')" msgErro="O numero e obrigatório"></app-campo-control-erro>
+        </div>
+
+        <div class="custom-control col-12 col-md-6">
+          <label for="complemento">Complemento</label>
+          <input type="text" class="form-control" placeholder="Complemento" formControlName="complemento" id="complemento">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="custom-control col-12">
+          <label for="rua">Rua</label>
+          <input type="text" class="form-control" placeholder="Rua" formControlName="rua" id="rua" [ngClass]="aplicarCssErro('endereco.rua')">
+          <app-campo-control-erro [motrarErro]="verificaValidToucched('endereco.rua')" msgErro="O Rua e obrigatório"></app-campo-control-erro>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="col-12 col-md-6">
+          <label for="bairro">Bairro</label>
+          <input type="text" class="form-control" placeholder="Bairro" formControlName="bairro" id="bairro" [ngClass]="aplicarCssErro('endereco.bairro')">
+          <app-campo-control-erro [motrarErro]="verificaValidToucched('endereco.bairro')" msgErro="O Bairro e obrigatório"></app-campo-control-erro>
+        </div>
+
+        <div class="col-12 col-md-4">
+          <label for="cidade">Cidade</label>
+          <input type="text" class="form-control" placeholder="Cidade" formControlName="cidade" id="cidade" [ngClass]="aplicarCssErro('endereco.cidade')">
+          <app-campo-control-erro [motrarErro]="verificaValidToucched('endereco.cidade')" msgErro="O cidade e obrigatório"></app-campo-control-erro>
+        </div>
+
+        <div class="col-12 col-md-2">
+          <label for="estado">Estado</label>
+          <input type="text" class="form-control" placeholder="Estado" formControlName="estado" id="estado" [ngClass]="aplicarCssErro('endereco.estado')">
+          <app-campo-control-erro [motrarErro]="verificaValidToucched('endereco.estado')" msgErro="O Estado e obrigatório"></app-campo-control-erro>
+        </div>
+      </div>
+
+    </div>
+      <div class="form-row" style="margin-top: 10px">
+        <button type="submit" class="btn btn-primary col-5 col-md-1" style="margin-right: 10px">Login</button>
+        <button type="reset" class="btn btn-danger col-5 col-md-1" (click)="restar()">Cancelar</button>
+      </div>
+
+  </form>
+  <app-form-debug [form]="formulario"></app-form-debug>
+  </div>

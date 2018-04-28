@@ -1,0 +1,84 @@
+<h3>Form Template</h3>
+
+<div class="col-12">
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+
+    <div class="form-group">
+      <label for="nome">Nome</label>
+      <!-- So pega o dados -->
+      <input type="text" class="form-control" id="nome" placeholder="Escreva seu nome" name="nome" [ngModel]="usuario.nome" #nome="ngModel"
+        required [ngClass]="aplicarCssErro(nome)">
+        <app-campo-control-erro [motrarErro]="verificaValidToucched(nome)" msgErro="O Nome e obrigatório"></app-campo-control-erro>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="text" class="form-control" id="email" name="email" placeholder="Escreva seu Email" [ngModel]="usuario.email"
+        required email #txemail="ngModel" [ngClass]="aplicarCssErro(txemail)">
+    </div>
+    <app-campo-control-erro [motrarErro]="verificaValidToucched(txemail)" msgErro="O Email e obrigatório"></app-campo-control-erro>
+
+    <div ngModelGroup="endereco">
+    <div class="form-row">
+      <div class="custom-control col-12 col-md-3">
+        <label for="cep">CEP</label>
+        <input type="text" class="form-control" placeholder="CEP" name="cep" id="cep"
+         ngModel required #cep="ngModel" [ngClass]="aplicarCssErro(cep)"
+         (blur)="consultaCEP(cep.value, f)"
+         >
+         <app-campo-control-erro [motrarErro]="verificaValidToucched(cep)" msgErro="O Cep e obrigatório"></app-campo-control-erro>
+      </div>
+
+      <div class="custom-control col-12 col-md-3">
+        <label for="numero">Numero</label>
+        <input type="text" class="form-control" placeholder="Numero" name="numero" id="numero" ngModel required #numero="ngModel"
+        [ngClass]="aplicarCssErro(numero)">
+        <app-campo-control-erro [motrarErro]="verificaValidToucched(numero)" msgErro="O numero e obrigatório"></app-campo-control-erro>
+      </div>
+
+      <div class="custom-control col-12 col-md-6">
+        <label for="complemento">Complemento</label>
+        <input type="text" class="form-control" placeholder="Complemento" name="Complemento" id="complemento" ngModel #complemento="ngModel">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="custom-control col-12">
+        <label for="rua">Rua</label>
+        <input type="text" class="form-control" placeholder="Rua" name="rua" id="rua"
+        ngModel required #rua="ngModel"  [ngClass]="aplicarCssErro(rua)" readonly>
+      <app-campo-control-erro [motrarErro]="verificaValidToucched(rua)" msgErro="O Rua e obrigatório"></app-campo-control-erro>
+    </div>
+    </div>
+
+    <div class="form-row">
+      <div class="col-12 col-md-6">
+        <label for="bairro">Bairro</label>
+        <input type="text" class="form-control" placeholder="Bairro" name="bairro" id="bairro" ngModel required #bairro="ngModel"
+        [ngClass]="aplicarCssErro(bairro)" readonly>
+        <app-campo-control-erro [motrarErro]="verificaValidToucched(bairro)" msgErro="O Bairro e obrigatório"></app-campo-control-erro>
+      </div>
+
+      <div class="col-12 col-md-4">
+        <label for="cidade">Cidade</label>
+        <input type="text" class="form-control" placeholder="Cidade" name="cidade" id="cidade" ngModel required #cidade="ngModel"
+        [ngClass]="aplicarCssErro(cidade)" readonly>
+        <app-campo-control-erro [motrarErro]="verificaValidToucched(cidade)" msgErro="O cidade e obrigatório"></app-campo-control-erro>
+      </div>
+
+      <div class="col-12 col-md-2">
+        <label for="estado">Estado</label>
+        <input type="text" class="form-control" placeholder="Estado" name="estado" id="estado" ngModel required #estado="ngModel"
+        [ngClass]="aplicarCssErro(estado)" readonly>
+        <app-campo-control-erro [motrarErro]="verificaValidToucched(estado)" msgErro="O Estado e obrigatório"></app-campo-control-erro>
+      </div>
+    </div>
+
+    <div class="form-row" style="margin-top: 10px">
+      <button type="submit" class="btn btn-primary col-5 col-md-1" [disabled]="!f.valid" style="margin-right: 10px">Login</button>
+      <button type="reset" class="btn btn-danger col-5 col-md-1">Limpar</button>
+    </div>
+  </div>
+  </form>
+  <app-form-debug [form]="f"></app-form-debug>
+</div>
