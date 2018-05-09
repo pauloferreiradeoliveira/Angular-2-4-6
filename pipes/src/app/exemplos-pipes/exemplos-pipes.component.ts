@@ -30,7 +30,8 @@ export class ExemplosPipesComponent implements OnInit {
   addCurso(newLirvro: string){
     this.livros.push(newLirvro);
   }
-
+  
+// aplicando filtro
   obterCurso(){
     if(this.livros.length === 0 || this.filtro === undefined){
       return this.livros;
